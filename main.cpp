@@ -8,22 +8,14 @@
 #include <llvm/IR/IRBuilder.h>
 #include <llvm/Pass.h>
 #include <llvm/Support/FormattedStream.h>
-//#include <llvm/Support/raw_ostream.h>
-
-#include <llvm/ADT/SmallVector.h>
-#include <llvm/IR/BasicBlock.h>
-#include <llvm/IR/Constants.h>
-#include <llvm/IR/DerivedTypes.h>
-#include <llvm/IR/GlobalVariable.h>
-#include <llvm/IR/InlineAsm.h>
-#include <llvm/IR/Instructions.h>
-#include <llvm/Support/MathExtras.h>
 
 #include <string>
 #include <vector> 
 #include <iostream>
 
 using namespace llvm;
+
+#define DEBUG 0
 
 class expTree;
 void makeLLVMExpModule(std::string stExpr, LLVMContext &context);
@@ -82,7 +74,9 @@ void traverse(expTree* node) {
 
 void makeLLVMExpModule(std::string stExpr,LLVMContext &context) {
     expTree* tree = interpret(stExpr);
-    //traverse(tree);
+#if DEBUG
+    traverse(tree);
+#endif
     // Module Construction
     mod = llvm::make_unique<Module>("exprFunc", context);
     evaluate(tree);
@@ -123,8 +117,9 @@ void evaluate(expTree* node) {
             return; // "please call on root node"
         }
         std::vector<Type*> funcArgs;
-
-        //std::cout << "var count: " << node->varCount << std::endl;
+#if DEBUG
+        std::cout << "var count: " << node->varCount << std::endl;
+#endif
         for(int i = 0; i < node->varCount;i++) {
             funcArgs.push_back(Type::getInt32Ty(mod->getContext()));
         }
@@ -139,7 +134,9 @@ void evaluate(expTree* node) {
                          *mod.get());
 
         expression->setCallingConv(CallingConv::C);
-        //std::cout << "arg count: " << expression->arg_size() << std::endl;
+#if DEBUG
+        std::cout << "arg count: " << expression->arg_size() << std::endl;
+#endif
         Function::arg_iterator args = expression->arg_begin();
         BasicBlock* block = BasicBlock::Create(mod->getContext(), 
                                                "entry", expression);
@@ -157,9 +154,6 @@ void evalNode(expTree* node, IRBuilder<> &builder, Function::arg_iterator &args)
     evalNode(node->left , builder, args);
     switch(node->value[0]) {
         case '+':
-            //std::cout << node->left->value << node->value << node->right->value  << std::endl;
-            //outs() << node->left->eval->getName() << " plus " <<
-            //          node->right->eval->getName() << "\n";
             node->eval = builder.CreateBinOp(Instruction::Add,
                         node->left->eval, node->right->eval);
             break;
@@ -172,9 +166,6 @@ void evalNode(expTree* node, IRBuilder<> &builder, Function::arg_iterator &args)
                         node->left->eval, node->right->eval);
             break;
         case '*':
-            //std::cout << node->left->value << node->value << node->right->value  << std::endl;
-            //outs() << node->left->eval->getName() << " multiply " <<
-            //          node->right->eval->getName() << "\n";
             node->eval = builder.CreateBinOp(Instruction::Mul,
                         node->left->eval, node->right->eval);
             break;
@@ -191,10 +182,12 @@ void evalNode(expTree* node, IRBuilder<> &builder, Function::arg_iterator &args)
                         node->left->eval, node->right->eval);
             break;
         default:
-            //std::cout << node->value << std::endl;
             node->eval = args++;
             node->eval->setName(node->value);
-            //outs() << node->eval->getName() << "\n";
+#if DEBUG
+            std::cout << "node value: " << node->value << std::endl;
+            outs() << "IR var name: " << node->eval->getName() << "\n";
+#endif
     }
 }
 

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 600 230" width="600" version="1.1">
+    <defs>
+        <termtosvg:template_settings xmlns:termtosvg="https://github.com/nbedos/termtosvg">
+            <termtosvg:screen_geometry columns="100" rows="54"/>
+            <termtosvg:animation type="css"/>
+        </termtosvg:template_settings>
+        <style type="text/css" id="generated-style"><![CDATA[#screen {
+                font-family: 'DejaVu Sans Mono', monospace;
+                font-style: normal;
+                font-size: 14px;
+            }
+
+        text {
+            dominant-baseline: text-before-edge;
+            white-space: pre;
+        }
+    
+            :root {
+                --animation-duration: 3681ms;
+            }
+
+            @keyframes roll {
+                0.000%{transform:translateY(0px)}
+21.190%{transform:translateY(-952px)}
+21.271%{transform:translateY(-1904px)}
+37.979%{transform:translateY(-2856px)}
+38.685%{transform:translateY(-3808px)}
+38.739%{transform:translateY(-4760px)}
+72.833%{transform:translateY(-5712px)}
+100.000%{transform:translateY(-5712px)}
+            }
+
+            #screen_view {
+                animation-duration: 3681ms;
+                animation-iteration-count:infinite;
+                animation-name:roll;
+                animation-timing-function: steps(1,end);
+                animation-fill-mode: forwards;
+            }
+        ]]></style>
+        <style type="text/css" id="user-style">
+            /* gjm8 color theme (source: https://terminal.sexy/) */
+            .foreground {fill: #c5c5c5;}
+            .background {fill: #1c1c1c;}
+            .color0 {fill: #1c1c1c;}
+            .color1 {fill: #ff005b;}
+            .color2 {fill: #cee318;}
+            .color3 {fill: #ffe755;}
+            .color4 {fill: #048ac7;}
+            .color5 {fill: #833c9f;}
+            .color6 {fill: #0ac1cd;}
+            .color7 {fill: #e5e5e5;}
+            .color8 {fill: #1c1c1c;}
+            .color9 {fill: #ff005b;}
+            .color10 {fill: #cee318;}
+            .color11 {fill: #ffe755;}
+            .color12 {fill: #048ac7;}
+            .color13 {fill: #833c9f;}
+            .color14 {fill: #0ac1cd;}
+            .color15 {fill: #e5e5e5;}
+        </style>
+    </defs>
+    <svg id="screen" width="600" height="228" viewBox="0 0 600 228" preserveAspectRatio="xMidYMin slice">
+        <rect class="background" height="100%" width="100%" x="0" y="0"/><defs><g id="g1"><text class="foreground" textLength="80" x="0">bash-3.2$ </text><text class="background" textLength="8" x="80"> </text></g><g id="g2"><text class="foreground" textLength="96" x="0">bash-3.2$ ./</text><text class="background" textLength="8" x="96"> </text></g><g id="g3"><text class="foreground" textLength="232" x="0">bash-3.2$ ./expr-ir ab+cde+**</text><text class="background" textLength="8" x="232"> </text></g><g id="g4"><text class="foreground" textLength="232" x="0">bash-3.2$ ./expr-ir ab+cde+**</text></g><g id="g5"><text class="background" textLength="8" x="0"> </text></g><g id="g6"><text class="foreground" textLength="184" x="0">; ModuleID = 'exprFunc'</text></g><g id="g7"><text class="foreground" textLength="224" x="0">source_filename = "exprFunc"</text></g><g id="g8"><text class="foreground" textLength="512" x="0">define i32 @expression(i32 %a, i32 %b, i32 %c, i32 %d, i32 %e) {</text></g><g id="g9"><text class="foreground" textLength="48" x="0">entry:</text></g><g id="g10"><text class="foreground" textLength="168" x="0">  %0 = add i32 %b, %a</text></g><g id="g11"><text class="foreground" textLength="168" x="0">  %1 = add i32 %e, %d</text></g><g id="g12"><text class="foreground" textLength="168" x="0">  %2 = mul i32 %1, %c</text></g><g id="g13"><text class="foreground" textLength="168" x="0">  %3 = mul i32 %2, %0</text></g><g id="g14"><text class="foreground" textLength="96" x="0">  ret i32 %3</text></g><g id="g15"><text class="foreground" textLength="8" x="0">}</text></g><g id="g16"><text class="foreground" textLength="112" x="0">bash-3.2$ exit</text></g></defs><g id="screen_view"><g><rect class="foreground" height="17" width="8" x="80" y="0"/><use y="0" xlink:href="#g1"/></g><g><rect class="foreground" height="17" width="8" x="96" y="952"/><use y="952" xlink:href="#g2"/></g><g><rect class="foreground" height="17" width="8" x="232" y="1904"/><use y="1904" xlink:href="#g3"/></g><g><use y="2856" xlink:href="#g4"/><rect class="foreground" height="17" width="8" x="0" y="2873"/><use y="2873" xlink:href="#g5"/></g><g><use y="3808" xlink:href="#g4"/><use y="3825" xlink:href="#g6"/><use y="3842" xlink:href="#g7"/><rect class="foreground" height="17" width="8" x="0" y="3859"/><use y="3859" xlink:href="#g5"/></g><g><use y="4760" xlink:href="#g4"/><use y="4777" xlink:href="#g6"/><use y="4794" xlink:href="#g7"/><use y="4828" xlink:href="#g8"/><use y="4845" xlink:href="#g9"/><use y="4862" xlink:href="#g10"/><use y="4879" xlink:href="#g11"/><use y="4896" xlink:href="#g12"/><use y="4913" xlink:href="#g13"/><use y="4930" xlink:href="#g14"/><use y="4947" xlink:href="#g15"/><rect class="foreground" height="17" width="8" x="80" y="4964"/><use y="4964" xlink:href="#g1"/></g><g><use y="5712" xlink:href="#g4"/><use y="5729" xlink:href="#g6"/><use y="5746" xlink:href="#g7"/><use y="5780" xlink:href="#g8"/><use y="5797" xlink:href="#g9"/><use y="5814" xlink:href="#g10"/><use y="5831" xlink:href="#g11"/><use y="5848" xlink:href="#g12"/><use y="5865" xlink:href="#g13"/><use y="5882" xlink:href="#g14"/><use y="5899" xlink:href="#g15"/><use y="5916" xlink:href="#g16"/><rect class="foreground" height="17" width="8" x="0" y="5933"/><use y="5933" xlink:href="#g5"/></g></g></svg>
+</svg>
